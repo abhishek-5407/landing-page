@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="We Build Digital Experiences. Professional IT services including Web Development, SEO, and Digital Marketing." />
+  <title>We  Build Digital Experiences</title>
+
+ 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="light-mode">
+
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo" id="nav-logo">
+        <img src="logo.png" alt="Prodesk IT Logo" class="logo-img" />
+        <span class="logo-text">Prodesk <span class="logo-accent">IT</span></span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" class="nav-link active" id="link-home">Home</a></li>
+        <li><a href="#about" class="nav-link" id="link-about">About</a></li>
+        <li><a href="#services" class="nav-link" id="link-services">Services</a></li>
+        <li><a href="#contact" class="nav-link" id="link-contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle Theme">
+          <i class="fa-solid fa-moon" id="theme-icon"></i>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <ul class="mobile-nav-links">
+        <li><a href="#home" class="mobile-nav-link" id="mob-home">Home</a></li>
+        <li><a href="#about" class="mobile-nav-link" id="mob-about">About</a></li>
+        <li><a href="#services" class="mobile-nav-link" id="mob-services">Services</a></li>
+        <li><a href="#contact" class="mobile-nav-link" id="mob-contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ========== HERO SECTION ========== -->
+  <section class="hero" id="home">
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fa-solid fa-bolt"></i>
+        <span>Next-Gen IT Solutions</span>
+      </div>
+      <h1 class="hero-headline">
+        We Build <span class="gradient-text">Digital Experiences</span><br />
+        That Actually Work.
+      </h1>
+      <p class="hero-subheadline">
+        From blazing-fast websites to data-driven marketing campaigns — Prodesk IT turns your vision into a high-converting digital presence.
+      </p>
+      <div class="hero-cta-group">
+        <a href="#services" class="btn btn-primary" id="cta-get-started">
+          <span>Get Started</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="#about" class="btn btn-outline" id="cta-learn-more">
+          <span>Learn More</span>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">150+</span>
+          <span class="stat-label">Projects Delivered</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">98%</span>
+          <span class="stat-label">Client Satisfaction</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">5 Star</span>
+          <span class="stat-label">Average Rating</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT SECTION ========== -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <span class="section-badge">Who We Are</span>
+          <h2 class="section-title">Crafting Digital Solutions <span class="gradient-text">Since Day One</span></h2>
+          <p class="about-desc">
+            Prodesk IT is a full-service digital agency built by engineers, designers, and marketers who believe great technology should be accessible to every business. We don't just deliver code — we deliver outcomes.
+          </p>
+          <div class="about-features">
+            <div class="feature-item">
+              <div class="feature-icon"><i class="fa-solid fa-check"></i></div>
+              <span>ROI-focused digital strategies</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><i class="fa-solid fa-check"></i></div>
+              <span>Agile, sprint-based delivery model</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><i class="fa-solid fa-check"></i></div>
+              <span>Dedicated support and maintenance</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual">
+          <div class="visual-card" id="about-visual-card">
+            <div class="visual-icon"><i class="fa-solid fa-laptop-code"></i></div>
+            <h3>500+</h3>
+            <p>Successful deployments across India and globally</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES SECTION ========== -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">What We Do</span>
+        <h2 class="section-title">Our Core <span class="gradient-text">Services</span></h2>
+        <p class="section-subtitle">End-to-end digital solutions engineered for performance, scale, and results.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card" id="card-seo">
+          <div class="card-glow"></div>
+          <div class="card-icon-wrap">
+            <div class="card-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+          </div>
+          <h3 class="card-title">Search Engine Optimization</h3>
+          <p class="card-desc">Data-driven SEO strategies that push you to the top of Google. We handle on-page, off-page, technical SEO, and beyond.</p>
+          <ul class="card-features">
+            <li><i class="fa-solid fa-circle-dot"></i> Keyword Research and Strategy</li>
+            <li><i class="fa-solid fa-circle-dot"></i> Technical SEO Audits</li>
+            <li><i class="fa-solid fa-circle-dot"></i> Link Building Campaigns</li>
+          </ul>
+          <a href="#contact" class="card-cta" id="cta-seo">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="service-card featured-card" id="card-webdev">
+          <div class="card-badge-featured">Most Popular</div>
+          <div class="card-glow"></div>
+          <div class="card-icon-wrap">
+            <div class="card-icon"><i class="fa-solid fa-code"></i></div>
+          </div>
+          <h3 class="card-title">Web Development</h3>
+          <p class="card-desc">From sleek landing pages to enterprise-grade web apps — we build fast, scalable, and beautiful digital products.</p>
+          <ul class="card-features">
+            <li><i class="fa-solid fa-circle-dot"></i> React and Next.js Applications</li>
+            <li><i class="fa-solid fa-circle-dot"></i> Full-Stack Node.js Solutions</li>
+            <li><i class="fa-solid fa-circle-dot"></i> Performance-Optimized UIs</li>
+          </ul>
+          <a href="#contact" class="card-cta" id="cta-webdev">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="service-card" id="card-marketing">
+          <div class="card-glow"></div>
+          <div class="card-icon-wrap">
+            <div class="card-icon"><i class="fa-solid fa-bullhorn"></i></div>
+          </div>
+          <h3 class="card-title">Digital Marketing</h3>
+          <p class="card-desc">Reach the right audience at the right time. Our campaigns are built around metrics that matter — conversions, not just clicks.</p>
+          <ul class="card-features">
+            <li><i class="fa-solid fa-circle-dot"></i> Social Media Management</li>
+            <li><i class="fa-solid fa-circle-dot"></i> PPC and Google Ads</li>
+            <li><i class="fa-solid fa-circle-dot"></i> Content Marketing and Email</li>
+          </ul>
+          <a href="#contact" class="card-cta" id="cta-marketing">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT SECTION ========== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Get In Touch</span>
+        <h2 class="section-title">Ready to <span class="gradient-text">Launch?</span></h2>
+        <p class="section-subtitle">Tell us about your project and we will get back to you within 24 hours.</p>
+      </div>
+      <div class="contact-form-wrap">
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contact-name">Your Name</label>
+              <input type="text" id="contact-name" name="name" placeholder="John Doe" required />
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email Address</label>
+              <input type="email" id="contact-email" name="email" placeholder="john@example.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" id="btn-send">
+            <span>Send Message</span>
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="footer-logo">
+            <span class="logo-text">Prodesk <span class="logo-accent">IT</span></span>
+          </a>
+          <p class="footer-tagline">Building digital experiences that convert, scale, and inspire.</p>
+          <div class="social-icons" id="social-icons">
+            <a href="#" class="social-link" id="social-twitter" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="social-link" id="social-linkedin" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="social-link" id="social-instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-link" id="social-github" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#home" id="footer-home">Home</a></li>
+            <li><a href="#about" id="footer-about">About</a></li>
+            <li><a href="#services" id="footer-services">Services</a></li>
+            <li><a href="#contact" id="footer-contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Services</h4>
+          <ul class="footer-links">
+            <li><a href="#services" id="footer-seo">SEO Optimization</a></li>
+            <li><a href="#services" id="footer-webdev">Web Development</a></li>
+            <li><a href="#services" id="footer-mktg">Digital Marketing</a></li>
+            <li><a href="#contact" id="footer-consult">Free Consultation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Contact</h4>
+          <ul class="footer-contact-info">
+            <li><i class="fa-solid fa-envelope"></i> hello@prodesk.it</li>
+            <li><i class="fa-solid fa-phone"></i> +91 98765 43210</li>
+            <li><i class="fa-solid fa-location-dot"></i> New Delhi, India</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&#169; <span id="footer-year">2026</span> Prodesk IT. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#" id="footer-privacy">Privacy Policy</a>
+          <span>&#183;</span>
+          <a href="#" id="footer-terms">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
