@@ -1,6 +1,6 @@
 /* =============================================
    PRODESK IT — script.js
-   Phase 1 + Phase 2 JavaScript Logic
+   Phase 1 + 2 + 3 (Tailwind Edition)
    ============================================= */
 
 // ─── DOM REFERENCES ───────────────────────────────────────
@@ -20,13 +20,10 @@ if (footerYear) {
 
 // ─── STICKY NAVBAR (scroll shadow) ────────────────────────
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 20) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
-  }
+  navbar.classList.toggle('shadow-lg', window.scrollY > 20);
   updateActiveNavLink();
-});
+  toggleBackToTop();
+}, { passive: true });
 
 // ─── HAMBURGER MENU ───────────────────────────────────────
 hamburger.addEventListener('click', () => {
@@ -35,7 +32,6 @@ hamburger.addEventListener('click', () => {
   hamburger.setAttribute('aria-expanded', isOpen);
 });
 
-// Close mobile menu when a link is clicked
 document.querySelectorAll('.mobile-nav-link').forEach(link => {
   link.addEventListener('click', () => {
     mobileMenu.classList.remove('open');
@@ -44,7 +40,6 @@ document.querySelectorAll('.mobile-nav-link').forEach(link => {
   });
 });
 
-// Close mobile menu on outside click
 document.addEventListener('click', (e) => {
   if (!navbar.contains(e.target)) {
     mobileMenu.classList.remove('open');
@@ -53,25 +48,17 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// ─── DARK / LIGHT MODE TOGGLE ─────────────────────────────
-// Load saved preference
+// ─── DARK / LIGHT MODE TOGGLE (Tailwind class: 'dark') ────
 const savedTheme = localStorage.getItem('prodesk-theme');
 if (savedTheme === 'dark') {
-  document.body.classList.replace('light-mode', 'dark-mode');
+  document.documentElement.classList.add('dark');
   themeIcon.classList.replace('fa-moon', 'fa-sun');
 }
 
 themeToggle.addEventListener('click', () => {
-  const isDark = document.body.classList.toggle('dark-mode');
-  document.body.classList.toggle('light-mode', !isDark);
-
-  if (isDark) {
-    themeIcon.classList.replace('fa-moon', 'fa-sun');
-    localStorage.setItem('prodesk-theme', 'dark');
-  } else {
-    themeIcon.classList.replace('fa-sun', 'fa-moon');
-    localStorage.setItem('prodesk-theme', 'light');
-  }
+  const isDark = document.documentElement.classList.toggle('dark');
+  themeIcon.classList.replace(isDark ? 'fa-moon' : 'fa-sun', isDark ? 'fa-sun' : 'fa-moon');
+  localStorage.setItem('prodesk-theme', isDark ? 'dark' : 'light');
 });
 
 // ─── ACTIVE NAV LINK ON SCROLL ────────────────────────────
@@ -81,15 +68,17 @@ function updateActiveNavLink() {
 
   sections.forEach(section => {
     const sectionTop = section.offsetTop - 100;
-    if (scrollY >= sectionTop) {
-      currentSection = section.getAttribute('id');
-    }
+    if (scrollY >= sectionTop) currentSection = section.getAttribute('id');
   });
 
   navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === '#' + currentSection) {
-      link.classList.add('active');
+    const isActive = link.getAttribute('href') === '#' + currentSection;
+    link.classList.toggle('active', isActive);
+    link.classList.toggle('text-primary', isActive);
+    link.classList.toggle('bg-indigo-50', isActive);
+    link.classList.toggle('dark:bg-indigo-900/30', isActive);
+    if (!isActive) {
+      link.classList.remove('text-primary', 'bg-indigo-50');
     }
   });
 }
@@ -99,31 +88,22 @@ const contactForm = document.getElementById('contact-form');
 if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
-
     const name    = document.getElementById('contact-name').value.trim();
     const email   = document.getElementById('contact-email').value.trim();
     const message = document.getElementById('contact-message').value.trim();
     const btnSend = document.getElementById('btn-send');
 
-    if (!name || !email || !message) {
-      showToast('Please fill in all fields.', 'error');
-      return;
-    }
+    if (!name || !email || !message) { showToast('Please fill in all fields.', 'error'); return; }
+    if (!isValidEmail(email))        { showToast('Please enter a valid email address.', 'error'); return; }
 
-    if (!isValidEmail(email)) {
-      showToast('Please enter a valid email address.', 'error');
-      return;
-    }
-
-    // Simulate sending
     btnSend.disabled = true;
-    btnSend.innerHTML = '<span>Sending...</span><i class="fa-solid fa-spinner fa-spin"></i>';
+    btnSend.innerHTML = '<span>Sending...</span><i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i>';
 
     setTimeout(() => {
       showToast('Message sent! We will get back to you soon.', 'success');
       contactForm.reset();
       btnSend.disabled = false;
-      btnSend.innerHTML = '<span>Send Message</span><i class="fa-solid fa-paper-plane"></i>';
+      btnSend.innerHTML = '<span>Send Message</span><i class="fa-solid fa-paper-plane" aria-hidden="true"></i>';
     }, 1800);
   });
 }
@@ -134,51 +114,46 @@ function isValidEmail(email) {
 
 // ─── TOAST NOTIFICATION ───────────────────────────────────
 function showToast(message, type = 'success') {
-  const existing = document.querySelector('.toast');
+  const existing = document.querySelector('.toast-notif');
   if (existing) existing.remove();
 
   const toast = document.createElement('div');
-  toast.className = 'toast toast-' + type;
+  toast.className = 'toast-notif';
+  toast.setAttribute('role', 'alert');
+  toast.setAttribute('aria-live', 'polite');
   toast.innerHTML = `
-    <i class="fa-solid fa-${type === 'success' ? 'circle-check' : 'circle-exclamation'}"></i>
+    <i class="fa-solid fa-${type === 'success' ? 'circle-check' : 'circle-exclamation'}" aria-hidden="true"></i>
     <span>${message}</span>
   `;
 
-  // Inline styles for toast (self-contained)
   Object.assign(toast.style, {
-    position: 'fixed',
-    bottom: '2rem',
-    right: '2rem',
-    display: 'flex',
-    alignItems: 'center',
-    gap: '0.6rem',
-    padding: '1rem 1.5rem',
-    borderRadius: '12px',
-    background: type === 'success'
+    position:    'fixed',
+    bottom:      '2rem',
+    right:       '2rem',
+    display:     'flex',
+    alignItems:  'center',
+    gap:         '0.6rem',
+    padding:     '1rem 1.5rem',
+    borderRadius:'12px',
+    background:  type === 'success'
       ? 'linear-gradient(135deg, #10b981, #059669)'
       : 'linear-gradient(135deg, #ef4444, #dc2626)',
-    color: '#fff',
-    fontSize: '0.9rem',
-    fontWeight: '600',
-    fontFamily: "'Inter', sans-serif",
-    boxShadow: '0 8px 32px rgba(0,0,0,0.25)',
-    zIndex: '9999',
-    transform: 'translateY(80px)',
-    opacity: '0',
-    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+    color:       '#fff',
+    fontSize:    '0.9rem',
+    fontWeight:  '600',
+    fontFamily:  "'Inter', sans-serif",
+    boxShadow:   '0 8px 32px rgba(0,0,0,0.25)',
+    zIndex:      '9999',
+    transform:   'translateY(80px)',
+    opacity:     '0',
+    transition:  'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
   });
 
   document.body.appendChild(toast);
-
-  // Animate in
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      toast.style.transform = 'translateY(0)';
-      toast.style.opacity = '1';
-    });
-  });
-
-  // Animate out and remove
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    toast.style.transform = 'translateY(0)';
+    toast.style.opacity = '1';
+  }));
   setTimeout(() => {
     toast.style.transform = 'translateY(80px)';
     toast.style.opacity = '0';
@@ -187,10 +162,7 @@ function showToast(message, type = 'success') {
 }
 
 // ─── SCROLL-IN ANIMATIONS (IntersectionObserver) ──────────
-const observerOptions = {
-  threshold: 0.12,
-  rootMargin: '0px 0px -40px 0px'
-};
+const observerOptions = { threshold: 0.12, rootMargin: '0px 0px -40px 0px' };
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -201,20 +173,14 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-// Elements to animate on scroll
-document.querySelectorAll('.service-card, .visual-card, .about-text, .contact-form').forEach(el => {
+document.querySelectorAll('.scroll-hidden').forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(30px)';
   el.style.transition = 'opacity 0.6s ease, transform 0.6s cubic-bezier(0.4,0,0.2,1)';
   observer.observe(el);
 });
 
-// Add in-view CSS class support
-const style = document.createElement('style');
-style.textContent = `.in-view { opacity: 1 !important; transform: translateY(0) !important; }`;
-document.head.appendChild(style);
-
-// ─── SMOOTH SCROLL OFFSET (compensate for fixed navbar) ───
+// ─── SMOOTH SCROLL OFFSET ─────────────────────────────────
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', (e) => {
     const targetId = anchor.getAttribute('href');
@@ -228,3 +194,45 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+// ─── BACK TO TOP BUTTON ───────────────────────────────────
+const backToTopBtn = document.getElementById('back-to-top');
+
+function toggleBackToTop() {
+  if (backToTopBtn) backToTopBtn.classList.toggle('visible', window.scrollY > 400);
+}
+
+if (backToTopBtn) {
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+// ─── ANIMATED COUNTER (Hero Stats) ───────────────────────
+function animateCounter(el, target, suffix = '') {
+  const duration = 1800;
+  const start = performance.now();
+
+  function update(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased    = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(eased * target) + suffix;
+    if (progress < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+
+const statNumbers = document.querySelectorAll('.stat-number');
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el      = entry.target;
+      const rawText = el.textContent.trim();
+      const match   = rawText.match(/^([\d.]+)(.*)$/);
+      if (match) animateCounter(el, parseFloat(match[1]), match[2]);
+      counterObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+
+statNumbers.forEach(el => counterObserver.observe(el));

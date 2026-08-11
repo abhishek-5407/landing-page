@@ -1,294 +1,440 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="We Build Digital Experiences. Professional IT services including Web Development, SEO, and Digital Marketing." />
-  <title>We  Build Digital Experiences</title>
+  <meta name="description" content="Prodesk IT — Professional IT services including Web Development, SEO, and Digital Marketing. We build digital experiences that convert, scale, and inspire." />
+  <meta name="keywords" content="web development, SEO, digital marketing, IT services, India, Prodesk IT" />
+  <meta name="author" content="Prodesk IT" />
+  <meta property="og:title" content="Prodesk IT — We Build Digital Experiences" />
+  <meta property="og:description" content="From blazing-fast websites to data-driven marketing — Prodesk IT turns your vision into a high-converting digital presence." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="hero-bg.png" />
+  <title>We Build Digital Experiences | Prodesk IT</title>
 
- 
+  <!-- Preload hero for LCP -->
+  <link rel="preload" href="hero-bg.png" as="image" />
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
 
-
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <link rel="stylesheet" href="style.css" />
+  <!-- Tailwind CDN v3 — Phase 3 Migration -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            body: ['Inter', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          },
+          colors: {
+            primary: { DEFAULT: '#4f6ef7', dark: '#3a56e0', light: '#7b95ff' },
+            accent:  { DEFAULT: '#00d4aa' },
+            accent2: { DEFAULT: '#a855f7' },
+          },
+          boxShadow: {
+            card:         '0 8px 40px rgba(0,0,0,0.06)',
+            'card-hover': '0 24px 64px rgba(79,110,247,0.22)',
+            glow:         '0 4px 20px rgba(79,110,247,0.4)',
+            'glow-lg':    '0 12px 40px rgba(79,110,247,0.55)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS: animations, gradients, backdrop-filter -->
+  <link rel="stylesheet" href="custom.css" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Prodesk IT",
+    "url": "https://prodesk.it",
+    "description": "Professional IT services including Web Development, SEO, and Digital Marketing.",
+    "address": { "@type": "PostalAddress", "addressLocality": "New Delhi", "addressCountry": "IN" },
+    "contactPoint": { "@type": "ContactPoint", "telephone": "+91-98765-43210", "contactType": "customer service" }
+  }
+  </script>
 </head>
-<body class="light-mode">
 
+<body class="bg-gray-50 text-gray-900 antialiased overflow-x-hidden dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300">
 
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="#home" class="nav-logo" id="nav-logo">
-        <img src="logo.png" alt="Prodesk IT Logo" class="logo-img" />
-        <span class="logo-text">Prodesk <span class="logo-accent">IT</span></span>
+<!-- ===================== NAVBAR ===================== -->
+<nav class="fixed top-0 left-0 right-0 z-50 glass-nav dk-nav-bg bg-white/85 border-b border-indigo-100/60 dark:border-indigo-900/30 shadow-sm transition-all duration-300" id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="max-w-6xl mx-auto px-6 h-[72px] flex items-center justify-between gap-4">
+    <a href="#home" class="flex items-center gap-2 flex-shrink-0" id="nav-logo" aria-label="Prodesk IT Home">
+      <img src="logo.png" alt="Prodesk IT Logo" width="36" height="36" class="w-9 h-9 object-contain rounded-lg" />
+      <span class="font-heading text-xl font-extrabold text-gray-900 dark:text-white">Prodesk <span class="text-primary">IT</span></span>
+    </a>
+    <ul class="hidden md:flex items-center gap-1" id="nav-links" role="list">
+      <li><a href="#home"     class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-500 dark:text-gray-300 hover:text-primary hover:bg-indigo-50 dark:hover:bg-indigo-900/30 transition-all duration-200 active" id="link-home">Home</a></li>
+      <li><a href="#about"    class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-500 dark:text-gray-300 hover:text-primary hover:bg-indigo-50 dark:hover:bg-indigo-900/30 transition-all duration-200" id="link-about">About</a></li>
+      <li><a href="#services" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-500 dark:text-gray-300 hover:text-primary hover:bg-indigo-50 dark:hover:bg-indigo-900/30 transition-all duration-200" id="link-services">Services</a></li>
+      <li><a href="#contact"  class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-500 dark:text-gray-300 hover:text-primary hover:bg-indigo-50 dark:hover:bg-indigo-900/30 transition-all duration-200" id="link-contact">Contact</a></li>
+    </ul>
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle Theme"
+        class="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-primary hover:text-white hover:border-primary hover:rotate-12 transition-all duration-200">
+        <i class="fa-solid fa-moon text-base" id="theme-icon"></i>
+      </button>
+      <button id="hamburger" class="hamburger md:hidden w-10 h-10 rounded-lg flex flex-col justify-center items-center gap-[5px] bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:bg-indigo-50 transition-colors duration-200" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span class="ham-line bg-gray-500 dark:bg-gray-300"></span>
+        <span class="ham-line bg-gray-500 dark:bg-gray-300"></span>
+        <span class="ham-line bg-gray-500 dark:bg-gray-300"></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu glass-nav dk-nav-bg bg-white/95 dark:bg-gray-900/95 border-t border-gray-100 dark:border-gray-800" id="mobile-menu" role="menu">
+    <ul class="flex flex-col px-6 py-2 gap-1">
+      <li><a href="#home"     class="mobile-nav-link block px-4 py-3 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded-xl transition-all" id="mob-home"     role="menuitem">Home</a></li>
+      <li><a href="#about"    class="mobile-nav-link block px-4 py-3 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded-xl transition-all" id="mob-about"    role="menuitem">About</a></li>
+      <li><a href="#services" class="mobile-nav-link block px-4 py-3 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded-xl transition-all" id="mob-services" role="menuitem">Services</a></li>
+      <li><a href="#contact"  class="mobile-nav-link block px-4 py-3 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded-xl transition-all" id="mob-contact"  role="menuitem">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero-section relative min-h-screen flex items-center justify-center text-center overflow-hidden pt-[calc(72px+3rem)] pb-24" id="home" aria-labelledby="hero-heading">
+  <div class="hero-overlay absolute inset-0 z-0" aria-hidden="true"></div>
+  <div class="absolute inset-0 pointer-events-none z-[1]" aria-hidden="true">
+    <div class="shape shape-1 absolute w-[400px] h-[400px] rounded-full opacity-35" style="background:radial-gradient(circle,rgba(79,110,247,0.6),transparent);top:-100px;left:-100px"></div>
+    <div class="shape shape-2 absolute w-[300px] h-[300px] rounded-full opacity-35" style="background:radial-gradient(circle,rgba(168,85,247,0.5),transparent);bottom:-50px;right:-80px"></div>
+    <div class="shape shape-3 absolute w-[250px] h-[250px] rounded-full opacity-35" style="background:radial-gradient(circle,rgba(0,212,170,0.4),transparent);top:50%;right:10%"></div>
+  </div>
+  <div class="relative z-[2] max-w-4xl mx-auto px-6">
+    <div class="anim-down inline-flex items-center gap-2 px-4 py-2 mb-6 bg-indigo-500/20 border border-indigo-400/40 rounded-full text-[#a8c0ff] text-xs font-semibold tracking-widest uppercase">
+      <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+      <span>Next-Gen IT Solutions</span>
+    </div>
+    <h1 id="hero-heading" class="anim-up-1 font-heading font-black text-white leading-[1.1] mb-5 tracking-tight" style="font-size:clamp(2.4rem,6vw,4.2rem)">
+      We Build <span class="gradient-text">Digital Experiences</span><br />That Actually Work.
+    </h1>
+    <p class="anim-up-2 text-blue-100/80 max-w-2xl mx-auto mb-10 leading-relaxed" style="font-size:clamp(1rem,2.5vw,1.2rem)">
+      From blazing-fast websites to data-driven marketing campaigns — Prodesk IT turns your vision into a high-converting digital presence.
+    </p>
+    <div class="anim-up-3 flex flex-wrap items-center justify-center gap-4 mb-12">
+      <a href="#services" id="cta-get-started"
+        class="btn-gradient inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-semibold text-base shadow-glow hover:-translate-y-1 hover:scale-105 hover:shadow-glow-lg transition-all duration-300 w-full sm:w-auto justify-center">
+        <span>Get Started</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
       </a>
+      <a href="#about" id="cta-learn-more"
+        class="inline-flex items-center gap-2 px-8 py-4 rounded-full border-2 border-primary text-primary font-semibold text-base hover:bg-primary hover:text-white hover:-translate-y-1 hover:shadow-glow transition-all duration-300 w-full sm:w-auto justify-center">
+        <span>Learn More</span>
+      </a>
+    </div>
+    <div class="anim-up-4 flex items-center justify-center gap-8 flex-wrap">
+      <div class="flex flex-col items-center gap-1">
+        <span class="stat-number font-heading text-[1.8rem] font-extrabold text-white">150+</span>
+        <span class="text-xs text-blue-200/65 font-medium">Projects Delivered</span>
+      </div>
+      <div class="w-px h-10 bg-blue-200/20"></div>
+      <div class="flex flex-col items-center gap-1">
+        <span class="stat-number font-heading text-[1.8rem] font-extrabold text-white">98%</span>
+        <span class="text-xs text-blue-200/65 font-medium">Client Satisfaction</span>
+      </div>
+      <div class="w-px h-10 bg-blue-200/20"></div>
+      <div class="flex flex-col items-center gap-1">
+        <span class="stat-number font-heading text-[1.8rem] font-extrabold text-white">5 Star</span>
+        <span class="text-xs text-blue-200/65 font-medium">Average Rating</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#home" class="nav-link active" id="link-home">Home</a></li>
-        <li><a href="#about" class="nav-link" id="link-about">About</a></li>
-        <li><a href="#services" class="nav-link" id="link-services">Services</a></li>
-        <li><a href="#contact" class="nav-link" id="link-contact">Contact</a></li>
-      </ul>
+<!-- ===================== ABOUT ===================== -->
+<section class="py-24 bg-slate-50 dark:bg-gray-900" id="about" aria-labelledby="about-heading">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <div>
+        <span class="inline-flex items-center gap-1 px-4 py-1.5 mb-4 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200/60 dark:border-indigo-700/40 rounded-full text-xs font-semibold text-primary tracking-widest uppercase">Who We Are</span>
+        <h2 id="about-heading" class="font-heading font-extrabold leading-tight mb-4 dark:text-white" style="font-size:clamp(1.8rem,4vw,2.6rem)">
+          Crafting Digital Solutions <span class="gradient-text">Since Day One</span>
+        </h2>
+        <p class="text-gray-500 dark:text-gray-400 text-[1.05rem] leading-[1.75] mb-6">
+          Prodesk IT is a full-service digital agency built by engineers, designers, and marketers who believe great technology should be accessible to every business. We don't just deliver code — we deliver outcomes.
+        </p>
+        <ul class="flex flex-col gap-3" role="list">
+          <li class="flex items-center gap-3 text-gray-500 dark:text-gray-400 text-[0.95rem]">
+            <div class="w-[26px] h-[26px] rounded-full btn-gradient flex items-center justify-center flex-shrink-0" aria-hidden="true"><i class="fa-solid fa-check text-white text-[0.6rem]"></i></div>
+            ROI-focused digital strategies
+          </li>
+          <li class="flex items-center gap-3 text-gray-500 dark:text-gray-400 text-[0.95rem]">
+            <div class="w-[26px] h-[26px] rounded-full btn-gradient flex items-center justify-center flex-shrink-0" aria-hidden="true"><i class="fa-solid fa-check text-white text-[0.6rem]"></i></div>
+            Agile, sprint-based delivery model
+          </li>
+          <li class="flex items-center gap-3 text-gray-500 dark:text-gray-400 text-[0.95rem]">
+            <div class="w-[26px] h-[26px] rounded-full btn-gradient flex items-center justify-center flex-shrink-0" aria-hidden="true"><i class="fa-solid fa-check text-white text-[0.6rem]"></i></div>
+            Dedicated support and maintenance
+          </li>
+        </ul>
+      </div>
+      <div class="flex justify-center">
+        <div id="about-visual-card" class="scroll-hidden bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-[32px] p-10 text-center shadow-card hover:-translate-y-2 hover:shadow-card-hover transition-all duration-300 w-full max-w-xs">
+          <div class="icon-bg w-[72px] h-[72px] rounded-xl flex items-center justify-center text-4xl text-primary mx-auto mb-4" aria-hidden="true"><i class="fa-solid fa-laptop-code"></i></div>
+          <h3 class="font-heading text-5xl font-black mb-2 gradient-text">500+</h3>
+          <p class="text-gray-500 dark:text-gray-400 text-sm">Successful deployments across India and globally</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <div class="nav-right">
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle Theme">
-          <i class="fa-solid fa-moon" id="theme-icon"></i>
+<!-- ===================== SERVICES ===================== -->
+<section class="py-24 bg-white dark:bg-gray-950" id="services" aria-labelledby="services-heading">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <span class="inline-flex items-center gap-1 px-4 py-1.5 mb-4 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200/60 dark:border-indigo-700/40 rounded-full text-xs font-semibold text-primary tracking-widest uppercase">What We Do</span>
+      <h2 id="services-heading" class="font-heading font-extrabold leading-tight mb-3 dark:text-white" style="font-size:clamp(1.8rem,4vw,2.6rem)">Our Core <span class="gradient-text">Services</span></h2>
+      <p class="text-gray-500 dark:text-gray-400 text-[1.05rem] max-w-lg mx-auto">End-to-end digital solutions engineered for performance, scale, and results.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- SEO -->
+      <article id="card-seo" class="scroll-hidden group relative bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-[20px] p-8 flex flex-col gap-4 shadow-card hover:-translate-y-2.5 hover:shadow-card-hover hover:border-indigo-200 dark:hover:border-indigo-700 transition-all duration-300 overflow-hidden">
+        <div class="card-glow absolute -top-1/2 -left-1/2 w-[200%] h-[200%] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" aria-hidden="true"></div>
+        <div class="icon-bg w-14 h-14 rounded-xl flex items-center justify-center text-2xl text-primary group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300" aria-hidden="true"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+        <h3 class="font-heading text-lg font-bold text-gray-900 dark:text-white">Search Engine Optimization</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Data-driven SEO strategies that push you to the top of Google. We handle on-page, off-page, technical SEO, and beyond.</p>
+        <ul class="flex flex-col gap-2 pt-2 border-t border-gray-100 dark:border-gray-800 flex-1" role="list">
+          <li class="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm"><i class="fa-solid fa-circle-dot text-primary text-[0.5rem]" aria-hidden="true"></i> Keyword Research and Strategy</li>
+          <li class="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm"><i class="fa-solid fa-circle-dot text-primary text-[0.5rem]" aria-hidden="true"></i> Technical SEO Audits</li>
+          <li class="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm"><i class="fa-solid fa-circle-dot text-primary text-[0.5rem]" aria-hidden="true"></i> Link Building Campaigns</li>
+        </ul>
+        <a href="#contact" id="cta-seo" class="inline-flex items-center gap-2 text-sm font-semibold text-primary border border-indigo-200 dark:border-indigo-800 rounded-full px-4 py-2 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 hover:border-primary transition-all duration-200 self-start">Learn More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </article>
+      <!-- Web Dev (Featured) -->
+      <article id="card-webdev" class="scroll-hidden group relative featured-card-bg rounded-[20px] p-8 flex flex-col gap-4 shadow-card-hover hover:-translate-y-2.5 transition-all duration-300 overflow-hidden">
+        <span class="absolute top-5 right-5 text-xs font-semibold px-3 py-1 bg-white/20 border border-white/35 rounded-full text-white">Most Popular</span>
+        <div class="card-glow absolute -top-1/2 -left-1/2 w-[200%] h-[200%] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" aria-hidden="true"></div>
+        <div class="bg-white/20 w-14 h-14 rounded-xl flex items-center justify-center text-2xl text-white group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300" aria-hidden="true"><i class="fa-solid fa-code"></i></div>
+        <h3 class="font-heading text-lg font-bold text-white">Web Development</h3>
+        <p class="text-white/80 text-sm leading-relaxed">From sleek landing pages to enterprise-grade web apps — we build fast, scalable, and beautiful digital products.</p>
+        <ul class="flex flex-col gap-2 pt-2 border-t border-white/20 flex-1" role="list">
+          <li class="flex items-center gap-2 text-white/80 text-sm"><i class="fa-solid fa-circle-dot text-white/70 text-[0.5rem]" aria-hidden="true"></i> React and Next.js Applications</li>
+          <li class="flex items-center gap-2 text-white/80 text-sm"><i class="fa-solid fa-circle-dot text-white/70 text-[0.5rem]" aria-hidden="true"></i> Full-Stack Node.js Solutions</li>
+          <li class="flex items-center gap-2 text-white/80 text-sm"><i class="fa-solid fa-circle-dot text-white/70 text-[0.5rem]" aria-hidden="true"></i> Performance-Optimized UIs</li>
+        </ul>
+        <a href="#contact" id="cta-webdev" class="inline-flex items-center gap-2 text-sm font-semibold text-white border border-white/50 rounded-full px-4 py-2 hover:bg-white/15 transition-all duration-200 self-start">Learn More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </article>
+      <!-- Digital Marketing -->
+      <article id="card-marketing" class="scroll-hidden group relative bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-[20px] p-8 flex flex-col gap-4 shadow-card hover:-translate-y-2.5 hover:shadow-card-hover hover:border-indigo-200 dark:hover:border-indigo-700 transition-all duration-300 overflow-hidden">
+        <div class="card-glow absolute -top-1/2 -left-1/2 w-[200%] h-[200%] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" aria-hidden="true"></div>
+        <div class="icon-bg w-14 h-14 rounded-xl flex items-center justify-center text-2xl text-primary group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300" aria-hidden="true"><i class="fa-solid fa-bullhorn"></i></div>
+        <h3 class="font-heading text-lg font-bold text-gray-900 dark:text-white">Digital Marketing</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Reach the right audience at the right time. Our campaigns are built around metrics that matter — conversions, not just clicks.</p>
+        <ul class="flex flex-col gap-2 pt-2 border-t border-gray-100 dark:border-gray-800 flex-1" role="list">
+          <li class="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm"><i class="fa-solid fa-circle-dot text-primary text-[0.5rem]" aria-hidden="true"></i> Social Media Management</li>
+          <li class="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm"><i class="fa-solid fa-circle-dot text-primary text-[0.5rem]" aria-hidden="true"></i> PPC and Google Ads</li>
+          <li class="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm"><i class="fa-solid fa-circle-dot text-primary text-[0.5rem]" aria-hidden="true"></i> Content Marketing and Email</li>
+        </ul>
+        <a href="#contact" id="cta-marketing" class="inline-flex items-center gap-2 text-sm font-semibold text-primary border border-indigo-200 dark:border-indigo-800 rounded-full px-4 py-2 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 hover:border-primary transition-all duration-200 self-start">Learn More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROCESS ===================== -->
+<section class="py-24 bg-slate-50 dark:bg-gray-900" id="process" aria-labelledby="process-heading">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-14">
+      <span class="inline-flex items-center gap-1 px-4 py-1.5 mb-4 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200/60 dark:border-indigo-700/40 rounded-full text-xs font-semibold text-primary tracking-widest uppercase">Our Process</span>
+      <h2 id="process-heading" class="font-heading font-extrabold leading-tight mb-3 dark:text-white" style="font-size:clamp(1.8rem,4vw,2.6rem)">How We <span class="gradient-text">Work</span></h2>
+      <p class="text-gray-500 dark:text-gray-400 text-[1.05rem] max-w-lg mx-auto">A transparent, results-driven process from kickoff to launch — and beyond.</p>
+    </div>
+    <div class="flex flex-wrap justify-center gap-4 md:gap-0 items-start">
+      <div id="step-1" class="scroll-hidden group relative flex-1 min-w-[180px] max-w-[240px] bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-[20px] p-8 text-center shadow-card hover:-translate-y-2 hover:shadow-card-hover hover:border-indigo-200 dark:hover:border-indigo-700 transition-all duration-300">
+        <span class="step-num absolute top-4 right-5 font-heading text-5xl font-black opacity-25" aria-hidden="true">01</span>
+        <div class="icon-bg w-[60px] h-[60px] rounded-xl flex items-center justify-center text-2xl text-primary mx-auto mb-4 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300" aria-hidden="true"><i class="fa-solid fa-comments"></i></div>
+        <h3 class="font-heading text-base font-bold text-gray-900 dark:text-white mb-2">Discovery Call</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">We listen first. A deep-dive into your goals, audience, and challenges to shape the right strategy.</p>
+      </div>
+      <div class="hidden md:flex items-center justify-center px-2 mt-8 text-primary/40 text-xl flex-shrink-0" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
+      <div id="step-2" class="scroll-hidden group relative flex-1 min-w-[180px] max-w-[240px] bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-[20px] p-8 text-center shadow-card hover:-translate-y-2 hover:shadow-card-hover hover:border-indigo-200 dark:hover:border-indigo-700 transition-all duration-300">
+        <span class="step-num absolute top-4 right-5 font-heading text-5xl font-black opacity-25" aria-hidden="true">02</span>
+        <div class="icon-bg w-[60px] h-[60px] rounded-xl flex items-center justify-center text-2xl text-primary mx-auto mb-4 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300" aria-hidden="true"><i class="fa-solid fa-pencil-ruler"></i></div>
+        <h3 class="font-heading text-base font-bold text-gray-900 dark:text-white mb-2">Plan &amp; Design</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">We craft wireframes, UI prototypes, and a detailed project roadmap before a single line of code is written.</p>
+      </div>
+      <div class="hidden md:flex items-center justify-center px-2 mt-8 text-primary/40 text-xl flex-shrink-0" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
+      <div id="step-3" class="scroll-hidden group relative flex-1 min-w-[180px] max-w-[240px] bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-[20px] p-8 text-center shadow-card hover:-translate-y-2 hover:shadow-card-hover hover:border-indigo-200 dark:hover:border-indigo-700 transition-all duration-300">
+        <span class="step-num absolute top-4 right-5 font-heading text-5xl font-black opacity-25" aria-hidden="true">03</span>
+        <div class="icon-bg w-[60px] h-[60px] rounded-xl flex items-center justify-center text-2xl text-primary mx-auto mb-4 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300" aria-hidden="true"><i class="fa-solid fa-laptop-code"></i></div>
+        <h3 class="font-heading text-base font-bold text-gray-900 dark:text-white mb-2">Build &amp; Test</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Agile sprints, weekly demos, and rigorous QA ensure every deliverable is pixel-perfect and bug-free.</p>
+      </div>
+      <div class="hidden md:flex items-center justify-center px-2 mt-8 text-primary/40 text-xl flex-shrink-0" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
+      <div id="step-4" class="scroll-hidden group relative flex-1 min-w-[180px] max-w-[240px] bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-[20px] p-8 text-center shadow-card hover:-translate-y-2 hover:shadow-card-hover hover:border-indigo-200 dark:hover:border-indigo-700 transition-all duration-300">
+        <span class="step-num absolute top-4 right-5 font-heading text-5xl font-black opacity-25" aria-hidden="true">04</span>
+        <div class="icon-bg w-[60px] h-[60px] rounded-xl flex items-center justify-center text-2xl text-primary mx-auto mb-4 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-300" aria-hidden="true"><i class="fa-solid fa-rocket"></i></div>
+        <h3 class="font-heading text-base font-bold text-gray-900 dark:text-white mb-2">Launch &amp; Grow</h3>
+        <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">Go live with confidence. We provide ongoing support, analytics monitoring, and continuous optimisation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section class="py-24 bg-white dark:bg-gray-950" id="testimonials" aria-labelledby="testimonials-heading">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <span class="inline-flex items-center gap-1 px-4 py-1.5 mb-4 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200/60 dark:border-indigo-700/40 rounded-full text-xs font-semibold text-primary tracking-widest uppercase">Client Love</span>
+      <h2 id="testimonials-heading" class="font-heading font-extrabold leading-tight mb-3 dark:text-white" style="font-size:clamp(1.8rem,4vw,2.6rem)">What Our <span class="gradient-text">Clients Say</span></h2>
+      <p class="text-gray-500 dark:text-gray-400 text-[1.05rem] max-w-lg mx-auto">Real results, real stories. Don't take our word for it.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <article id="testi-1" class="scroll-hidden testi-card bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-[20px] p-8 flex flex-col gap-4 shadow-card hover:-translate-y-2 hover:shadow-card-hover hover:border-indigo-200 dark:hover:border-indigo-700 transition-all duration-300">
+        <div class="flex gap-1 text-amber-400 text-sm" aria-label="5 star rating"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+        <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed italic flex-1">"Prodesk IT built our e-commerce platform from scratch in just 6 weeks. Traffic doubled within the first month and our bounce rate dropped by 40%. Absolutely incredible team."</p>
+        <div class="flex items-center gap-3 pt-4 border-t border-gray-100 dark:border-gray-800">
+          <div class="w-11 h-11 rounded-full flex items-center justify-center text-xs font-bold text-white flex-shrink-0" style="background:linear-gradient(135deg,#4f6ef7,#a855f7)" aria-hidden="true">RS</div>
+          <div><p class="font-bold text-sm text-gray-900 dark:text-white">Ravi Sharma</p><p class="text-xs text-gray-400">CEO, ShopNest India</p></div>
+        </div>
+      </article>
+      <article id="testi-2" class="scroll-hidden featured-testi-card featured-testi-bg rounded-[20px] p-8 flex flex-col gap-4 shadow-card-hover hover:-translate-y-2 transition-all duration-300">
+        <div class="flex gap-1 text-yellow-200 text-sm" aria-label="5 star rating"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+        <p class="text-white/80 text-sm leading-relaxed italic flex-1">"Their SEO work got us to page 1 for 15+ keywords in under 3 months. The ROI has been phenomenal — we're booking 3x more leads than before. Highly recommend."</p>
+        <div class="flex items-center gap-3 pt-4 border-t border-white/20">
+          <div class="w-11 h-11 rounded-full flex items-center justify-center text-xs font-bold text-white flex-shrink-0" style="background:linear-gradient(135deg,#00d4aa,#4f6ef7)" aria-hidden="true">PK</div>
+          <div><p class="font-bold text-sm text-white">Priya Kapoor</p><p class="text-xs text-white/70">Founder, HealthFirst Clinic</p></div>
+        </div>
+      </article>
+      <article id="testi-3" class="scroll-hidden testi-card bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-[20px] p-8 flex flex-col gap-4 shadow-card hover:-translate-y-2 hover:shadow-card-hover hover:border-indigo-200 dark:hover:border-indigo-700 transition-all duration-300">
+        <div class="flex gap-1 text-amber-400 text-sm" aria-label="5 star rating"><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+        <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed italic flex-1">"The Google Ads campaign they ran for us achieved a 6:1 ROAS in the very first month. The team is proactive, data-driven and genuinely cares about your business success."</p>
+        <div class="flex items-center gap-3 pt-4 border-t border-gray-100 dark:border-gray-800">
+          <div class="w-11 h-11 rounded-full flex items-center justify-center text-xs font-bold text-white flex-shrink-0" style="background:linear-gradient(135deg,#a855f7,#00d4aa)" aria-hidden="true">AM</div>
+          <div><p class="font-bold text-sm text-gray-900 dark:text-white">Arjun Mehta</p><p class="text-xs text-gray-400">Director, EduTech Pro</p></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA BANNER ===================== -->
+<section class="py-16 bg-slate-50 dark:bg-gray-900" id="cta-section" aria-labelledby="cta-heading">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="scroll-hidden cta-banner-bg relative rounded-[32px] py-16 px-8 text-center overflow-hidden" style="box-shadow:0 20px 60px rgba(79,110,247,0.3)">
+      <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div class="absolute w-72 h-72 rounded-full blur-3xl" style="background:rgba(255,255,255,0.08);top:-80px;left:-80px"></div>
+        <div class="absolute w-60 h-60 rounded-full blur-3xl" style="background:rgba(255,255,255,0.08);bottom:-60px;right:-60px"></div>
+      </div>
+      <div class="relative z-10">
+        <span class="inline-flex items-center gap-1 px-4 py-1.5 mb-4 border border-white/35 bg-white/10 rounded-full text-xs font-semibold text-white tracking-widest uppercase">Limited Slots Available</span>
+        <h2 id="cta-heading" class="font-heading font-black text-white mb-3 leading-tight" style="font-size:clamp(1.8rem,4vw,2.8rem)">Ready to 10&times; Your Digital Presence?</h2>
+        <p class="text-white/80 text-[1.05rem] mb-8">Book a free 30-minute strategy call. No obligations, pure value.</p>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <a href="#contact" id="cta-banner-primary" class="inline-flex items-center gap-2 bg-white text-primary font-bold px-8 py-4 rounded-full hover:-translate-y-1 hover:scale-105 hover:shadow-xl transition-all duration-300">Book Free Call <i class="fa-solid fa-calendar-check" aria-hidden="true"></i></a>
+          <a href="#services" id="cta-banner-secondary" class="inline-flex items-center gap-2 text-white font-semibold px-8 py-4 rounded-full border-2 border-white/45 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300">View Services <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section class="py-24 bg-white dark:bg-gray-950" id="contact" aria-labelledby="contact-heading">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <span class="inline-flex items-center gap-1 px-4 py-1.5 mb-4 bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200/60 dark:border-indigo-700/40 rounded-full text-xs font-semibold text-primary tracking-widest uppercase">Get In Touch</span>
+      <h2 id="contact-heading" class="font-heading font-extrabold leading-tight mb-3 dark:text-white" style="font-size:clamp(1.8rem,4vw,2.6rem)">Ready to <span class="gradient-text">Launch?</span></h2>
+      <p class="text-gray-500 dark:text-gray-400 text-[1.05rem] max-w-lg mx-auto">Tell us about your project and we will get back to you within 24 hours.</p>
+    </div>
+    <div class="max-w-2xl mx-auto">
+      <form id="contact-form" class="scroll-hidden bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-[20px] p-10 shadow-card flex flex-col gap-5" novalidate aria-label="Contact form">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div class="flex flex-col gap-1.5">
+            <label for="contact-name" class="text-sm font-semibold text-gray-500 dark:text-gray-400 tracking-wide">Your Name</label>
+            <input type="text" id="contact-name" name="name" placeholder="John Doe" required aria-required="true"
+              class="px-4 py-3.5 border border-gray-200 dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white text-[0.95rem] outline-none focus:border-primary focus:ring-2 focus:ring-indigo-100 dark:focus:ring-indigo-900/30 transition-all duration-200 font-body" />
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <label for="contact-email" class="text-sm font-semibold text-gray-500 dark:text-gray-400 tracking-wide">Email Address</label>
+            <input type="email" id="contact-email" name="email" placeholder="john@example.com" required aria-required="true"
+              class="px-4 py-3.5 border border-gray-200 dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white text-[0.95rem] outline-none focus:border-primary focus:ring-2 focus:ring-indigo-100 dark:focus:ring-indigo-900/30 transition-all duration-200 font-body" />
+          </div>
+        </div>
+        <div class="flex flex-col gap-1.5">
+          <label for="contact-message" class="text-sm font-semibold text-gray-500 dark:text-gray-400 tracking-wide">Message</label>
+          <textarea id="contact-message" name="message" rows="5" placeholder="Tell us about your project..." required aria-required="true"
+            class="px-4 py-3.5 border border-gray-200 dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white text-[0.95rem] outline-none focus:border-primary focus:ring-2 focus:ring-indigo-100 dark:focus:ring-indigo-900/30 transition-all duration-200 resize-y font-body"></textarea>
+        </div>
+        <button type="submit" id="btn-send"
+          class="btn-gradient inline-flex items-center justify-center gap-2 text-white font-semibold px-8 py-4 rounded-full shadow-glow hover:-translate-y-1 hover:shadow-glow-lg transition-all duration-300 self-start border-none cursor-pointer font-body">
+          <span>Send Message</span><i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
         </button>
-        <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
-          <span class="ham-line"></span>
-          <span class="ham-line"></span>
-          <span class="ham-line"></span>
-        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="bg-gray-50 dark:bg-gray-950 border-t border-gray-100 dark:border-gray-800 pt-16" id="footer" role="contentinfo">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-16 border-b border-gray-100 dark:border-gray-800">
+      <div class="sm:col-span-2">
+        <a href="#home" class="font-heading text-xl font-extrabold text-gray-900 dark:text-white inline-block mb-3">Prodesk <span class="text-primary">IT</span></a>
+        <p class="text-gray-400 text-sm leading-relaxed mb-5 max-w-xs">Building digital experiences that convert, scale, and inspire.</p>
+        <div class="flex gap-2" id="social-icons" aria-label="Social media links">
+          <a href="#" id="social-twitter"   aria-label="Twitter"   class="w-10 h-10 rounded-lg flex items-center justify-center bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-400 text-sm hover:bg-primary hover:text-white hover:border-primary hover:-translate-y-0.5 hover:shadow-glow transition-all duration-200"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+          <a href="#" id="social-linkedin"  aria-label="LinkedIn"  class="w-10 h-10 rounded-lg flex items-center justify-center bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-400 text-sm hover:bg-primary hover:text-white hover:border-primary hover:-translate-y-0.5 hover:shadow-glow transition-all duration-200"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+          <a href="#" id="social-instagram" aria-label="Instagram" class="w-10 h-10 rounded-lg flex items-center justify-center bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-400 text-sm hover:bg-primary hover:text-white hover:border-primary hover:-translate-y-0.5 hover:shadow-glow transition-all duration-200"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="#" id="social-github"    aria-label="GitHub"    class="w-10 h-10 rounded-lg flex items-center justify-center bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-400 text-sm hover:bg-primary hover:text-white hover:border-primary hover:-translate-y-0.5 hover:shadow-glow transition-all duration-200"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-heading text-xs font-bold text-gray-900 dark:text-white uppercase tracking-widest mb-4">Quick Links</h4>
+        <ul class="flex flex-col gap-2.5" role="list">
+          <li><a href="#home"     id="footer-home"     class="text-gray-400 text-sm hover:text-primary transition-colors duration-200">Home</a></li>
+          <li><a href="#about"    id="footer-about"    class="text-gray-400 text-sm hover:text-primary transition-colors duration-200">About</a></li>
+          <li><a href="#services" id="footer-services" class="text-gray-400 text-sm hover:text-primary transition-colors duration-200">Services</a></li>
+          <li><a href="#contact"  id="footer-contact"  class="text-gray-400 text-sm hover:text-primary transition-colors duration-200">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-heading text-xs font-bold text-gray-900 dark:text-white uppercase tracking-widest mb-4">Contact</h4>
+        <ul class="flex flex-col gap-2.5" role="list">
+          <li class="flex items-center gap-2 text-gray-400 text-sm"><i class="fa-solid fa-envelope text-primary text-xs flex-shrink-0" aria-hidden="true"></i> hello@prodesk.it</li>
+          <li class="flex items-center gap-2 text-gray-400 text-sm"><i class="fa-solid fa-phone text-primary text-xs flex-shrink-0" aria-hidden="true"></i> +91 98765 43210</li>
+          <li class="flex items-center gap-2 text-gray-400 text-sm"><i class="fa-solid fa-location-dot text-primary text-xs flex-shrink-0" aria-hidden="true"></i> New Delhi, India</li>
+        </ul>
       </div>
     </div>
-
-    <div class="mobile-menu" id="mobile-menu">
-      <ul class="mobile-nav-links">
-        <li><a href="#home" class="mobile-nav-link" id="mob-home">Home</a></li>
-        <li><a href="#about" class="mobile-nav-link" id="mob-about">About</a></li>
-        <li><a href="#services" class="mobile-nav-link" id="mob-services">Services</a></li>
-        <li><a href="#contact" class="mobile-nav-link" id="mob-contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- ========== HERO SECTION ========== -->
-  <section class="hero" id="home">
-    <div class="hero-bg-overlay"></div>
-    <div class="hero-content">
-      <div class="hero-badge">
-        <i class="fa-solid fa-bolt"></i>
-        <span>Next-Gen IT Solutions</span>
-      </div>
-      <h1 class="hero-headline">
-        We Build <span class="gradient-text">Digital Experiences</span><br />
-        That Actually Work.
-      </h1>
-      <p class="hero-subheadline">
-        From blazing-fast websites to data-driven marketing campaigns — Prodesk IT turns your vision into a high-converting digital presence.
-      </p>
-      <div class="hero-cta-group">
-        <a href="#services" class="btn btn-primary" id="cta-get-started">
-          <span>Get Started</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </a>
-        <a href="#about" class="btn btn-outline" id="cta-learn-more">
-          <span>Learn More</span>
-        </a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat-item">
-          <span class="stat-number">150+</span>
-          <span class="stat-label">Projects Delivered</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-number">98%</span>
-          <span class="stat-label">Client Satisfaction</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-number">5 Star</span>
-          <span class="stat-label">Average Rating</span>
-        </div>
+    <div class="flex flex-wrap items-center justify-between gap-3 py-5 text-sm text-gray-400">
+      <p>&copy; <span id="footer-year">2026</span> Prodesk IT. All rights reserved.</p>
+      <div class="flex items-center gap-3">
+        <a href="#" id="footer-privacy" class="hover:text-primary transition-colors duration-200">Privacy Policy</a>
+        <span aria-hidden="true">&middot;</span>
+        <a href="#" id="footer-terms" class="hover:text-primary transition-colors duration-200">Terms of Service</a>
       </div>
     </div>
-    <div class="hero-shapes">
-      <div class="shape shape-1"></div>
-      <div class="shape shape-2"></div>
-      <div class="shape shape-3"></div>
-    </div>
-  </section>
+  </div>
+</footer>
 
-  <!-- ========== ABOUT SECTION ========== -->
-  <section class="about" id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-text">
-          <span class="section-badge">Who We Are</span>
-          <h2 class="section-title">Crafting Digital Solutions <span class="gradient-text">Since Day One</span></h2>
-          <p class="about-desc">
-            Prodesk IT is a full-service digital agency built by engineers, designers, and marketers who believe great technology should be accessible to every business. We don't just deliver code — we deliver outcomes.
-          </p>
-          <div class="about-features">
-            <div class="feature-item">
-              <div class="feature-icon"><i class="fa-solid fa-check"></i></div>
-              <span>ROI-focused digital strategies</span>
-            </div>
-            <div class="feature-item">
-              <div class="feature-icon"><i class="fa-solid fa-check"></i></div>
-              <span>Agile, sprint-based delivery model</span>
-            </div>
-            <div class="feature-item">
-              <div class="feature-icon"><i class="fa-solid fa-check"></i></div>
-              <span>Dedicated support and maintenance</span>
-            </div>
-          </div>
-        </div>
-        <div class="about-visual">
-          <div class="visual-card" id="about-visual-card">
-            <div class="visual-icon"><i class="fa-solid fa-laptop-code"></i></div>
-            <h3>500+</h3>
-            <p>Successful deployments across India and globally</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- WhatsApp Float -->
+<a href="https://wa.me/919876543210" id="whatsapp-float"
+  class="wa-gradient wa-pulse fixed bottom-24 right-7 w-14 h-14 rounded-full flex items-center justify-center text-white text-2xl hover:scale-110 hover:-rotate-6 transition-all duration-300 z-[900] no-underline"
+  style="box-shadow:0 6px 24px rgba(37,211,102,0.5)"
+  target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+</a>
 
-  <!-- ========== SERVICES SECTION ========== -->
-  <section class="services" id="services">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-badge">What We Do</span>
-        <h2 class="section-title">Our Core <span class="gradient-text">Services</span></h2>
-        <p class="section-subtitle">End-to-end digital solutions engineered for performance, scale, and results.</p>
-      </div>
+<!-- Back to Top -->
+<button id="back-to-top" aria-label="Back to top"
+  class="back-to-top btt-gradient fixed bottom-7 right-7 w-12 h-12 rounded-full flex items-center justify-center text-white z-[900]"
+  style="box-shadow:0 4px 20px rgba(79,110,247,0.45)">
+  <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+</button>
 
-      <div class="services-grid">
-        <div class="service-card" id="card-seo">
-          <div class="card-glow"></div>
-          <div class="card-icon-wrap">
-            <div class="card-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-          </div>
-          <h3 class="card-title">Search Engine Optimization</h3>
-          <p class="card-desc">Data-driven SEO strategies that push you to the top of Google. We handle on-page, off-page, technical SEO, and beyond.</p>
-          <ul class="card-features">
-            <li><i class="fa-solid fa-circle-dot"></i> Keyword Research and Strategy</li>
-            <li><i class="fa-solid fa-circle-dot"></i> Technical SEO Audits</li>
-            <li><i class="fa-solid fa-circle-dot"></i> Link Building Campaigns</li>
-          </ul>
-          <a href="#contact" class="card-cta" id="cta-seo">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-        <div class="service-card featured-card" id="card-webdev">
-          <div class="card-badge-featured">Most Popular</div>
-          <div class="card-glow"></div>
-          <div class="card-icon-wrap">
-            <div class="card-icon"><i class="fa-solid fa-code"></i></div>
-          </div>
-          <h3 class="card-title">Web Development</h3>
-          <p class="card-desc">From sleek landing pages to enterprise-grade web apps — we build fast, scalable, and beautiful digital products.</p>
-          <ul class="card-features">
-            <li><i class="fa-solid fa-circle-dot"></i> React and Next.js Applications</li>
-            <li><i class="fa-solid fa-circle-dot"></i> Full-Stack Node.js Solutions</li>
-            <li><i class="fa-solid fa-circle-dot"></i> Performance-Optimized UIs</li>
-          </ul>
-          <a href="#contact" class="card-cta" id="cta-webdev">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-        <div class="service-card" id="card-marketing">
-          <div class="card-glow"></div>
-          <div class="card-icon-wrap">
-            <div class="card-icon"><i class="fa-solid fa-bullhorn"></i></div>
-          </div>
-          <h3 class="card-title">Digital Marketing</h3>
-          <p class="card-desc">Reach the right audience at the right time. Our campaigns are built around metrics that matter — conversions, not just clicks.</p>
-          <ul class="card-features">
-            <li><i class="fa-solid fa-circle-dot"></i> Social Media Management</li>
-            <li><i class="fa-solid fa-circle-dot"></i> PPC and Google Ads</li>
-            <li><i class="fa-solid fa-circle-dot"></i> Content Marketing and Email</li>
-          </ul>
-          <a href="#contact" class="card-cta" id="cta-marketing">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== CONTACT SECTION ========== -->
-  <section class="contact" id="contact">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-badge">Get In Touch</span>
-        <h2 class="section-title">Ready to <span class="gradient-text">Launch?</span></h2>
-        <p class="section-subtitle">Tell us about your project and we will get back to you within 24 hours.</p>
-      </div>
-      <div class="contact-form-wrap">
-        <form class="contact-form" id="contact-form" novalidate>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="contact-name">Your Name</label>
-              <input type="text" id="contact-name" name="name" placeholder="John Doe" required />
-            </div>
-            <div class="form-group">
-              <label for="contact-email">Email Address</label>
-              <input type="email" id="contact-email" name="email" placeholder="john@example.com" required />
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="contact-message">Message</label>
-            <textarea id="contact-message" name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" id="btn-send">
-            <span>Send Message</span>
-            <i class="fa-solid fa-paper-plane"></i>
-          </button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== FOOTER ========== -->
-  <footer class="footer" id="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="#home" class="footer-logo">
-            <span class="logo-text">Prodesk <span class="logo-accent">IT</span></span>
-          </a>
-          <p class="footer-tagline">Building digital experiences that convert, scale, and inspire.</p>
-          <div class="social-icons" id="social-icons">
-            <a href="#" class="social-link" id="social-twitter" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#" class="social-link" id="social-linkedin" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#" class="social-link" id="social-instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" class="social-link" id="social-github" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-          </div>
-        </div>
-
-        <div class="footer-links-col">
-          <h4 class="footer-col-title">Quick Links</h4>
-          <ul class="footer-links">
-            <li><a href="#home" id="footer-home">Home</a></li>
-            <li><a href="#about" id="footer-about">About</a></li>
-            <li><a href="#services" id="footer-services">Services</a></li>
-            <li><a href="#contact" id="footer-contact">Contact</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-links-col">
-          <h4 class="footer-col-title">Services</h4>
-          <ul class="footer-links">
-            <li><a href="#services" id="footer-seo">SEO Optimization</a></li>
-            <li><a href="#services" id="footer-webdev">Web Development</a></li>
-            <li><a href="#services" id="footer-mktg">Digital Marketing</a></li>
-            <li><a href="#contact" id="footer-consult">Free Consultation</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-links-col">
-          <h4 class="footer-col-title">Contact</h4>
-          <ul class="footer-contact-info">
-            <li><i class="fa-solid fa-envelope"></i> hello@prodesk.it</li>
-            <li><i class="fa-solid fa-phone"></i> +91 98765 43210</li>
-            <li><i class="fa-solid fa-location-dot"></i> New Delhi, India</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>&#169; <span id="footer-year">2026</span> Prodesk IT. All rights reserved.</p>
-        <div class="footer-bottom-links">
-          <a href="#" id="footer-privacy">Privacy Policy</a>
-          <span>&#183;</span>
-          <a href="#" id="footer-terms">Terms of Service</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

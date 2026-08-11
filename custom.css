@@ -1,0 +1,169 @@
+/* =============================================
+   custom.css — Only what Tailwind cannot do
+   Phase 3: Tailwind migration supplement
+   ============================================= */
+
+/* — CSS CUSTOM PROPERTIES — */
+:root {
+  --clr-primary: #4f6ef7;
+  --clr-primary-dark: #3a56e0;
+  --clr-accent: #00d4aa;
+  --clr-accent-2: #a855f7;
+  --nav-height: 72px;
+}
+
+/* — BASE — */
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; }
+
+/* — GRADIENT TEXT — */
+.gradient-text {
+  background: linear-gradient(135deg, #4f6ef7, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* — GLASSMORPHISM — */
+.glass-nav {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* — HERO — */
+.hero-section {
+  background: url('hero-bg.png') center center / cover no-repeat;
+}
+.hero-overlay {
+  background: linear-gradient(135deg, rgba(8,12,26,0.82) 0%, rgba(20,30,70,0.75) 50%, rgba(60,20,80,0.7) 100%);
+}
+
+/* — FLOATING SHAPES — */
+.shape { filter: blur(80px); }
+.shape-1 { animation: float1 8s ease-in-out infinite; }
+.shape-2 { animation: float2 10s ease-in-out infinite; }
+.shape-3 { animation: float3 12s ease-in-out infinite; }
+
+/* — HERO ANIMATIONS — */
+.anim-down { animation: fadeInDown 0.7s ease both; }
+.anim-up-1 { animation: fadeInUp 0.7s 0.15s ease both; }
+.anim-up-2 { animation: fadeInUp 0.7s 0.25s ease both; }
+.anim-up-3 { animation: fadeInUp 0.7s 0.35s ease both; }
+.anim-up-4 { animation: fadeInUp 0.7s 0.45s ease both; }
+
+/* — GRADIENTS — */
+.featured-card-bg { background: linear-gradient(135deg, #4f6ef7, #a855f7); }
+.featured-testi-bg { background: linear-gradient(135deg, #4f6ef7, #a855f7); }
+.cta-banner-bg { background: linear-gradient(135deg, #4f6ef7, #a855f7); }
+.btn-gradient { background: linear-gradient(135deg, #4f6ef7, #a855f7); }
+.wa-gradient { background: linear-gradient(135deg, #25d366, #128c7e); }
+.btt-gradient { background: linear-gradient(135deg, #4f6ef7, #a855f7); }
+.icon-bg { background: linear-gradient(135deg, rgba(79,110,247,0.12), rgba(168,85,247,0.12)); }
+.step-num {
+  background: linear-gradient(135deg, #4f6ef7, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* — CARD GLOW — */
+.card-glow {
+  background: radial-gradient(circle at 50% 50%, rgba(79,110,247,0.07), transparent 70%);
+}
+
+/* — MOBILE MENU — */
+.mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.mobile-menu.open { max-height: 320px; }
+
+/* — HAM LINES — */
+.ham-line {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+.hamburger.active .ham-line:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.active .ham-line:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.active .ham-line:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* — BACK TO TOP — */
+.back-to-top {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.back-to-top.visible { opacity: 1; transform: translateY(0); }
+
+/* — WHATSAPP PULSE — */
+.wa-pulse { position: relative; }
+.wa-pulse::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(37, 211, 102, 0.4);
+  animation: whatsapp-pulse 2s ease-in-out infinite;
+}
+
+/* — TESTIMONIAL QUOTE — */
+.testi-card { position: relative; overflow: hidden; }
+.testi-card::before {
+  content: '\201C';
+  position: absolute;
+  top: -0.5rem;
+  right: 1.5rem;
+  font-size: 7rem;
+  font-family: Georgia, serif;
+  color: #4f6ef7;
+  opacity: 0.07;
+  line-height: 1;
+  pointer-events: none;
+}
+.featured-testi-card::before { color: rgba(255,255,255,0.15); opacity: 1; }
+
+/* — SCROLL ANIMATE — */
+.in-view { opacity: 1 !important; transform: translateY(0) !important; }
+
+/* — DARK MODE — */
+body.dark-mode { background-color: #080c1a; color: #e8eeff; }
+body.dark-mode .dk-bg { background-color: #080c1a !important; }
+body.dark-mode .dk-bg-alt { background-color: #0d1325 !important; }
+body.dark-mode .dk-surface { background-color: #111827 !important; }
+body.dark-mode .dk-border { border-color: rgba(99,120,200,0.12) !important; }
+body.dark-mode .dk-text { color: #e8eeff !important; }
+body.dark-mode .dk-text-muted { color: #8a99c0 !important; }
+body.dark-mode .dk-nav-bg { background: rgba(8,12,26,0.85) !important; }
+body.dark-mode .dk-input { background-color: #080c1a !important; color: #e8eeff !important; }
+
+/* — KEYFRAMES — */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes float1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(30px, -20px) scale(1.05); }
+  66%       { transform: translate(-15px, 30px) scale(0.95); }
+}
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0); }
+  50%       { transform: translate(-25px, -35px); }
+}
+@keyframes float3 {
+  0%, 100% { transform: translate(0, -50%) scale(1); }
+  50%       { transform: translate(20px, -60%) scale(1.08); }
+}
+@keyframes whatsapp-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50%       { transform: scale(1.3); opacity: 0; }
+}
